@@ -10,6 +10,9 @@ class Node():
     def __str__(self):
         return f'({self.vertex_number})'
 
+    def out_degree(self):
+        return len(self.neighbours)
+
 
 nodes = []
 for i in range(7):

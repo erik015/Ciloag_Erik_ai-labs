@@ -30,7 +30,7 @@ def shopSmart(orderList, fruitShops):
         fruitShops: List of FruitShops
     """
     "*** YOUR CODE HERE ***"
-    return None
+    return min(fruitShops, key=lambda shop: shop.getPriceOfOrder(orderList))
 
 
 if __name__ == '__main__':
@@ -38,10 +38,14 @@ if __name__ == '__main__':
     orders = [('apples', 1.0), ('oranges', 3.0)]
     dir1 = {'apples': 2.0, 'oranges': 1.0}
     shop1 = shop.FruitShop('shop1', dir1)
+    print(f"List of fruits sold in the shop: {shop1.listFruits()}")
     print(shop1)
+
     dir2 = {'apples': 1.0, 'oranges': 5.0}
     shop2 = shop.FruitShop('shop2', dir2)
     shops = [shop1, shop2]
+    print(f"List of fruits sold in the shop: {shop2.listFruits()}")
     print("For orders ", orders, ", the best shop is", shopSmart(orders, shops).getName())
     orders = [('apples', 3.0)]
     print("For orders: ", orders, ", the best shop is", shopSmart(orders, shops).getName())
+    print(f"shop1 == shop2: {shop1 == shop2}")

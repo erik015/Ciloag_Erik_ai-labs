@@ -28,7 +28,7 @@ class FruitShop:
 
     def getCostPerPound(self, fruit):
         """
-            fruit: Fruit string
+        fruit: Fruit string
         Returns cost of 'fruit', assuming 'fruit'
         is in our inventory or None otherwise
         """
@@ -54,7 +54,15 @@ class FruitShop:
         return self.name
 
     def __str__(self):
-        return "<FruitShop: %s>" % self.getName()
+        return f"<FruitShop: {self.getName()}, fruits sold: {self.listFruits()}>"
 
     def __repr__(self):
         return str(self)
+
+    def __eq__(self, other):
+        if isinstance(other, FruitShop):
+            return self.fruitPrices.keys() == other.fruitPrices.keys()
+        return False
+
+    def listFruits(self):
+        return list(self.fruitPrices.keys())
